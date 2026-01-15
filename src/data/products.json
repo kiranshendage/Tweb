@@ -1,0 +1,124 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "CloudSync Pro",
+      "category": "Cloud Solutions",
+      "description": "Enterprise cloud synchronization platform with real-time data backup and recovery",
+      "features": [
+        "Real-time Sync",
+        "256-bit Encryption",
+        "Automatic Backup",
+        "Cross-platform Support"
+      ],
+      "price": 299,
+      "pricePeriod": "month",
+      "rating": 4.9,
+      "reviews": 234,
+      "icon": "FaCloud",
+      "color": "from-blue-500 to-cyan-400",
+      "popular": true,
+      "launchDate": "2024-01-15"
+    },
+    {
+      "id": 2,
+      "name": "SecureNet AI",
+      "category": "Cybersecurity",
+      "description": "AI-powered threat detection and prevention system for enterprise networks",
+      "features": [
+        "AI Threat Detection",
+        "24/7 Monitoring",
+        "Zero-day Protection",
+        "Compliance Ready"
+      ],
+      "price": 499,
+      "pricePeriod": "month",
+      "rating": 4.8,
+      "reviews": 189,
+      "icon": "FaShieldAlt",
+      "color": "from-green-500 to-emerald-400",
+      "popular": false,
+      "launchDate": "2024-02-20"
+    },
+    {
+      "id": 3,
+      "name": "DataFlow Analytics",
+      "category": "Data Analytics",
+      "description": "Advanced data processing and visualization platform for business intelligence",
+      "features": [
+        "Real-time Analytics",
+        "Predictive Modeling",
+        "Custom Dashboards",
+        "API Integration"
+      ],
+      "price": 399,
+      "pricePeriod": "month",
+      "rating": 4.7,
+      "reviews": 156,
+      "icon": "FaChartBar",
+      "color": "from-purple-500 to-pink-400",
+      "popular": true,
+      "launchDate": "2024-03-10"
+    },
+    {
+      "id": 4,
+      "name": "AutomateIQ",
+      "category": "Automation",
+      "description": "Intelligent workflow automation platform for business processes",
+      "features": [
+        "RPA Integration",
+        "No-code Builder",
+        "API Connectors",
+        "Workflow Analytics"
+      ],
+      "price": 349,
+      "pricePeriod": "month",
+      "rating": 4.6,
+      "reviews": 142,
+      "icon": "FaRobot",
+      "color": "from-orange-500 to-yellow-400",
+      "popular": false,
+      "launchDate": "2024-01-30"
+    },
+    {
+      "id": 5,
+      "name": "ConnectHub",
+      "category": "Integration",
+      "description": "Unified platform for connecting all your business applications and services",
+      "features": [
+        "500+ Integrations",
+        "Real-time Sync",
+        "Custom Connectors",
+        "Webhook Support"
+      ],
+      "price": 279,
+      "pricePeriod": "month",
+      "rating": 4.8,
+      "reviews": 201,
+      "icon": "FaPlug",
+      "color": "from-indigo-500 to-blue-400",
+      "popular": true,
+      "launchDate": "2024-02-15"
+    },
+    {
+      "id": 6,
+      "name": "MobileFirst Studio",
+      "category": "Mobile Development",
+      "description": "Complete mobile app development platform for iOS and Android",
+      "features": [
+        "Cross-platform",
+        "Native Performance",
+        "Drag & Drop Builder",
+        "App Store Ready"
+      ],
+      "price": 449,
+      "pricePeriod": "month",
+      "rating": 4.9,
+      "reviews": 178,
+      "icon": "FaMobileAlt",
+      "color": "from-red-500 to-pink-400",
+      "popular": false,
+      "launchDate": "2024-03-05"
+    }
+  ]
+}
