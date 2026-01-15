@@ -1,234 +1,7 @@
-// // // src/components/ServicesByIndustry.jsx
-// import React from 'react';
-// import { motion } from 'framer-motion';
-// import { useInView } from 'react-intersection-observer';
-// import { 
-//   FaHeartbeat,
-//   FaGraduationCap,
-//   FaBuilding,
-//   FaCode,
-//   FaShieldAlt,
-//   FaLaptopCode,
-//   FaChartLine,
-//   FaUsers,
-//   FaArrowRight,
-//   FaCheck
-// } from 'react-icons/fa';
-
-// const ServicesByIndustry = () => {
-//   const { ref, inView } = useInView({
-//     triggerOnce: true,
-//     threshold: 0.1,
-//   });
-
-//   const containerVariants = {
-//     hidden: { opacity: 0 },
-//     visible: {
-//       opacity: 1,
-//       transition: {
-//         staggerChildren: 0.1
-//       }
-//     }
-//   };
-
-//   const cardVariants = {
-//     hidden: { y: 30, opacity: 0 },
-//     visible: {
-//       y: 0,
-//       opacity: 1,
-//       transition: { duration: 0.5 }
-//     }
-//   };
-
-//   const industries = [
-//     {
-//       icon: FaHeartbeat,
-//       title: "Healthcare",
-//       description: "Medical device security and compliance solutions for hospitals and healthcare providers.",
-//       features: ["HIPAA Compliance", "Medical Device Security", "Patient Data Protection", "Healthcare IT"],
-//       color: "from-red-500 to-pink-500",
-//       iconBg: "bg-gradient-to-br from-red-500 to-pink-500"
-//     },
-//     {
-//       icon: FaGraduationCap,
-//       title: "Higher Education",
-//       description: "Cybersecurity solutions for universities and educational institutions.",
-//       features: ["Campus Security", "Student Data Protection", "Research Security", "Compliance"],
-//       color: "from-blue-500 to-cyan-500",
-//       iconBg: "bg-gradient-to-br from-blue-500 to-cyan-500"
-//     },
-//     {
-//       icon: FaBuilding,
-//       title: "Banking & Finance",
-//       description: "Financial security solutions meeting FFIEC and regulatory requirements.",
-//       features: ["FFIEC Compliance", "Fraud Prevention", "Transaction Security", "Risk Management"],
-//       color: "from-green-500 to-emerald-500",
-//       iconBg: "bg-gradient-to-br from-green-500 to-emerald-500"
-//     },
-//     {
-//       icon: FaCode,
-//       title: "Software & SaaS",
-//       description: "Security services for SaaS solutions and software companies.",
-//       features: ["SaaS Security", "Cloud Protection", "API Security", "DevSecOps"],
-//       color: "from-purple-500 to-indigo-500",
-//       iconBg: "bg-gradient-to-br from-purple-500 to-indigo-500"
-//     }
-//   ];
-
-//   return (
-//     <section className="py-16 md:py-24 bg-gradient-to-b from-blue-50/50 to-white">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        
-//         {/* Section Header */}
-//         <motion.div
-//           ref={ref}
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={inView ? { opacity: 1, y: 0 } : {}}
-//           transition={{ duration: 0.6 }}
-//           className="text-center mb-12 md:mb-16"
-//         >
-//           <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-700 rounded-full text-sm font-semibold mb-4">
-//             Industry Solutions
-//           </span>
-//           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-//             Services by <span className="text-blue-600">Industry</span>
-//           </h2>
-//           <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
-//             Tailored technology solutions for specific industry needs and compliance requirements
-//           </p>
-//         </motion.div>
-
-//         {/* Industries Grid */}
-//         <motion.div
-//           variants={containerVariants}
-//           initial="hidden"
-//           animate={inView ? "visible" : "hidden"}
-//           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 md:mb-16"
-//         >
-//           {industries.map((industry, index) => (
-//             <motion.div
-//               key={index}
-//               variants={cardVariants}
-//               whileHover={{ y: -5 }}
-//               className="group relative bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 overflow-hidden"
-//             >
-//               <div className="p-6">
-//                 {/* Icon */}
-//                 <div className={`inline-flex p-3 ${industry.iconBg} rounded-xl mb-4`}>
-//                   <industry.icon className="w-6 h-6 text-white" />
-//                 </div>
-
-//                 {/* Title */}
-//                 <h3 className="text-lg font-bold text-gray-900 mb-3">
-//                   {industry.title}
-//                 </h3>
-
-//                 {/* Description */}
-//                 <p className="text-gray-600 text-sm mb-4 leading-relaxed">
-//                   {industry.description}
-//                 </p>
-
-//                 {/* Features */}
-//                 <div className="space-y-2 mb-6">
-//                   {industry.features.map((feature, idx) => (
-//                     <div key={idx} className="flex items-center gap-2">
-//                       <FaCheck className="w-3 h-3 text-green-500 flex-shrink-0" />
-//                       <span className="text-gray-700 text-xs font-medium">{feature}</span>
-//                     </div>
-//                   ))}
-//                 </div>
-
-//                 {/* CTA */}
-//                 <button className="text-blue-600 text-sm font-semibold hover:text-blue-800 transition-colors duration-300 flex items-center gap-1 group/btn">
-//                   Learn More
-//                   <FaArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform duration-300" />
-//                 </button>
-//               </div>
-//             </motion.div>
-//           ))}
-//         </motion.div>
-
-//         {/* Stats Section */}
-//         <motion.div
-//           initial={{ opacity: 0, scale: 0.95 }}
-//           animate={inView ? { opacity: 1, scale: 1 } : {}}
-//           transition={{ duration: 0.6, delay: 0.3 }}
-//           className="bg-gradient-to-r from-blue-600 to-blue-500 rounded-2xl p-6 md:p-8 mb-12 overflow-hidden"
-//         >
-//           <div className="relative">
-//             {/* Background pattern */}
-//             <div className="absolute top-4 right-4 w-20 h-20 bg-white/10 rounded-full blur-2xl"></div>
-//             <div className="absolute bottom-4 left-4 w-16 h-16 bg-white/10 rounded-full blur-2xl"></div>
-
-//             <div className="relative z-10">
-//               <h3 className="text-xl md:text-2xl font-bold text-white text-center mb-8">
-//                 Industry Trust & Results
-//               </h3>
-
-//               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-//                 {[
-//                   { icon: FaShieldAlt, value: "100%", label: "Compliance", desc: "Industry standards" },
-//                   { icon: FaLaptopCode, value: "24/7", label: "Monitoring", desc: "Real-time protection" },
-//                   { icon: FaChartLine, value: "99.9%", label: "Uptime", desc: "Service reliability" },
-//                   { icon: FaUsers, value: "500+", label: "Clients", desc: "Across industries" },
-//                 ].map((stat, index) => (
-//                   <div key={index} className="text-center">
-//                     <div className="inline-flex p-2 bg-white/20 rounded-full mb-3">
-//                       <stat.icon className="w-5 h-5 text-white" />
-//                     </div>
-//                     <div className="text-2xl md:text-3xl font-bold text-white mb-1">{stat.value}</div>
-//                     <div className="text-white font-semibold text-sm mb-1">{stat.label}</div>
-//                     <div className="text-blue-100 text-xs">{stat.desc}</div>
-//                   </div>
-//                 ))}
-//               </div>
-//             </div>
-//           </div>
-//         </motion.div>
-
-//         {/* CTA Section */}
-//         <motion.div
-//           initial={{ opacity: 0, y: 20 }}
-//           animate={inView ? { opacity: 1, y: 0 } : {}}
-//           transition={{ duration: 0.6, delay: 0.4 }}
-//           className="text-center"
-//         >
-//           <div className="max-w-xl mx-auto">
-//             <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4">
-//               Custom Solutions for Your Industry
-//             </h3>
-//             <p className="text-gray-600 mb-6 text-sm md:text-base">
-//               We specialize in creating tailored technology solutions for unique industry challenges.
-//             </p>
-//             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-//               <motion.button
-//                 whileHover={{ scale: 1.03 }}
-//                 whileTap={{ scale: 0.98 }}
-//                 className="px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 text-white font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300 text-sm md:text-base"
-//               >
-//                 Schedule Consultation
-//               </motion.button>
-//               <motion.button
-//                 whileHover={{ scale: 1.03 }}
-//                 whileTap={{ scale: 0.98 }}
-//                 className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg border border-blue-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 text-sm md:text-base"
-//               >
-//                 View Case Studies
-//               </motion.button>
-//             </div>
-//           </div>
-//         </motion.div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default ServicesByIndustry;
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { 
+import {
   FaBuilding,
   FaCode,
   FaChartLine,
@@ -244,6 +17,7 @@ import {
   FaShoppingCart,
   FaIndustry
 } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const ServicesByIndustry = () => {
   const { ref, inView } = useInView({
@@ -268,7 +42,7 @@ const ServicesByIndustry = () => {
       y: 0,
       opacity: 1,
       scale: 1,
-      transition: { 
+      transition: {
         duration: 0.6,
         ease: "easeOut"
       }
@@ -303,7 +77,7 @@ const ServicesByIndustry = () => {
       }
     }
   };
-
+  const navigate = useNavigate();
   const industries = [
     {
       icon: FaBuilding,
@@ -312,7 +86,8 @@ const ServicesByIndustry = () => {
       features: ["Digital Transformation", "Cloud Migration", "Legacy Modernization", "Scalable Architecture"],
       gradient: "from-blue-600/20 via-blue-500/15 to-blue-600/20",
       iconColor: "text-blue-300",
-      iconBg: "bg-gradient-to-br from-blue-900/40 to-blue-800/30"
+      iconBg: "bg-gradient-to-br from-blue-900/40 to-blue-800/30",
+      route: "/solution/et"
     },
     {
       icon: FaShoppingCart,
@@ -321,7 +96,8 @@ const ServicesByIndustry = () => {
       features: ["Platform Development", "Payment Gateways", "Inventory Systems", "Analytics Dashboard"],
       gradient: "from-purple-600/20 via-purple-500/15 to-purple-600/20",
       iconColor: "text-purple-300",
-      iconBg: "bg-gradient-to-br from-purple-900/40 to-purple-800/30"
+      iconBg: "bg-gradient-to-br from-purple-900/40 to-purple-800/30",
+      route: "/solution/ec"
     },
     {
       icon: FaGraduationCap,
@@ -330,7 +106,8 @@ const ServicesByIndustry = () => {
       features: ["LMS Development", "E-learning Apps", "Student Portals", "Virtual Classrooms"],
       gradient: "from-cyan-600/20 via-cyan-500/15 to-cyan-600/20",
       iconColor: "text-cyan-300",
-      iconBg: "bg-gradient-to-br from-cyan-900/40 to-cyan-800/30"
+      iconBg: "bg-gradient-to-br from-cyan-900/40 to-cyan-800/30",
+      route: "/solution/ed"
     },
     {
       icon: FaHeartbeat,
@@ -339,15 +116,16 @@ const ServicesByIndustry = () => {
       features: ["Medical Apps", "Patient Portals", "Telemedicine", "Health Analytics"],
       gradient: "from-red-600/20 via-red-500/15 to-red-600/20",
       iconColor: "text-red-300",
-      iconBg: "bg-gradient-to-br from-red-900/40 to-red-800/30"
+      iconBg: "bg-gradient-to-br from-red-900/40 to-red-800/30",
+      route: "/solution/hk"
     }
   ];
 
   const technologies = [
-    { icon: FaCode, label: "Web Development", value: "100+" },
-    { icon: FaMobileAlt, label: "Mobile Apps", value: "50+" },
-    { icon: FaCloud, label: "Cloud Projects", value: "200+" },
-    { icon: FaServer, label: "Infrastructure", value: "75+" }
+    { icon: FaCode, label: "Web Development", value: "5+" },
+    { icon: FaMobileAlt, label: "Mobile Apps", value: "5++" },
+    { icon: FaCloud, label: "Cloud Projects", value: "2+" },
+    { icon: FaServer, label: "Infrastructure", value: "15+" }
   ];
 
   return (
@@ -405,19 +183,19 @@ const ServicesByIndustry = () => {
             className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight"
           >
             <span className="text-transparent bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text">
-              Premium Solutions for 
+              Premium Solutions for
             </span>
             <span className="block">
               <motion.span
-                animate={{ 
+                animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                 }}
-                transition={{ 
-                  duration: 3, 
+                transition={{
+                  duration: 3,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                style={{ 
+                style={{
                   backgroundSize: "200% 200%",
                   backgroundImage: "linear-gradient(to right, #60a5fa, #22d3ee, #60a5fa)"
                 }}
@@ -427,7 +205,7 @@ const ServicesByIndustry = () => {
               </motion.span>
             </span>
           </motion.h2>
-          
+
           {/* Description */}
           <motion.p
             variants={fadeInUp}
@@ -463,7 +241,7 @@ const ServicesByIndustry = () => {
                 whileHover={{ opacity: 1 }}
                 className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent transition-opacity duration-500"
               />
-              
+
               <div className="relative p-6">
                 {/* Icon */}
                 <motion.div
@@ -510,6 +288,7 @@ const ServicesByIndustry = () => {
                 {/* CTA */}
                 <motion.button
                   whileHover={{ x: 5 }}
+                  onClick={() => navigate(industry.route)}
                   className="text-blue-300 text-sm font-semibold hover:text-cyan-200 transition-colors duration-300 flex items-center gap-2"
                 >
                   Explore Solutions
@@ -520,6 +299,7 @@ const ServicesByIndustry = () => {
                     <FaArrowRight className="w-3 h-3" />
                   </motion.div>
                 </motion.button>
+
               </div>
 
               {/* Bottom Accent */}
@@ -543,11 +323,11 @@ const ServicesByIndustry = () => {
           {/* Animated Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <motion.div
-              animate={{ 
+              animate={{
                 x: [0, 20, 0],
                 y: [0, -20, 0]
               }}
-              transition={{ 
+              transition={{
                 duration: 8,
                 repeat: Infinity,
                 ease: "linear"
@@ -555,11 +335,11 @@ const ServicesByIndustry = () => {
               className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full blur-3xl"
             />
             <motion.div
-              animate={{ 
+              animate={{
                 x: [0, -20, 0],
                 y: [0, 20, 0]
               }}
-              transition={{ 
+              transition={{
                 duration: 8,
                 repeat: Infinity,
                 ease: "linear",
@@ -577,15 +357,15 @@ const ServicesByIndustry = () => {
               className="text-2xl md:text-3xl font-bold text-gray-200 text-center mb-10"
             >
               <motion.span
-                animate={{ 
+                animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                 }}
-                transition={{ 
-                  duration: 4, 
+                transition={{
+                  duration: 4,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                style={{ 
+                style={{
                   backgroundSize: "200% 200%",
                   backgroundImage: "linear-gradient(to right, #93c5fd, #22d3ee, #93c5fd)"
                 }}
@@ -670,7 +450,8 @@ const ServicesByIndustry = () => {
                   transition={{ duration: 0.6 }}
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
                 />
-                <span className="relative flex items-center justify-center gap-3">
+                <span className="relative flex items-center justify-center gap-3"
+                  onClick={() => navigate("/contact")}>
                   Schedule Premium Consultation
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
@@ -680,7 +461,7 @@ const ServicesByIndustry = () => {
                   </motion.div>
                 </span>
               </motion.button>
-              
+
               <motion.button
                 variants={scaleIn}
                 whileHover={{ scale: 1.05 }}

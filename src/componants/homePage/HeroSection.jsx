@@ -1,234 +1,9 @@
-// // src/components/HeroSection.tsx
-// import React, { useEffect, useState } from 'react';
-// import { FaArrowRight, FaCheckCircle, FaPlay, FaRocket, FaShieldAlt, FaLightbulb } from 'react-icons/fa';
-// import { motion } from 'framer-motion';
-// import { useInView } from 'react-intersection-observer';
-
-// // Install framer-motion and react-intersection-observer
-// // npm install framer-motion react-intersection-observer
-
-// const HeroSection = () => {
-//     const [ref, inView] = useInView({
-//         triggerOnce: true,
-//         threshold: 0.1,
-//     });
-
-//     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-
-   
-
-//     return (
-//         <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 py-16 md:py-24">
-//             {/* Animated Background Elements */}
-//             <div className="absolute inset-0 overflow-hidden">
-//                 {/* Floating circles */}
-//                 <motion.div
-//                     className="absolute top-10 left-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70"
-//                     animate={{
-//                         x: mousePosition.x * 0.5,
-//                         y: mousePosition.y * 0.5,
-//                     }}
-//                     transition={{ type: "spring", stiffness: 100 }}
-//                 />
-//                 <motion.div
-//                     className="absolute bottom-10 right-10 w-96 h-96 bg-cyan-100 rounded-full mix-blend-multiply filter blur-3xl opacity-70"
-//                     animate={{
-//                         x: mousePosition.x * -0.5,
-//                         y: mousePosition.y * -0.5,
-//                     }}
-//                     transition={{ type: "spring", stiffness: 100 }}
-//                 />
-                
-//                 {/* Animated grid pattern */}
-//                 <div className="absolute inset-0 opacity-5">
-//                     <div className="absolute inset-0" style={{
-//                         backgroundImage: `linear-gradient(to right, #3b82f6 1px, transparent 1px),
-//                                         linear-gradient(to bottom, #3b82f6 1px, transparent 1px)`,
-//                         backgroundSize: '50px 50px',
-//                     }} />
-//                 </div>
-
-//                 {/* Floating particles */}
-//                 {[...Array(15)].map((_, i) => (
-//                     <motion.div
-//                         key={i}
-//                         className="absolute w-2 h-2 bg-blue-300 rounded-full"
-//                         style={{
-//                             left: `${Math.random() * 100}%`,
-//                             top: `${Math.random() * 100}%`,
-//                         }}
-//                         animate={{
-//                             y: [0, -20, 0],
-//                             x: [0, Math.random() * 10 - 5, 0],
-//                         }}
-//                         transition={{
-//                             duration: 3 + Math.random() * 2,
-//                             repeat: Infinity,
-//                             ease: "easeInOut",
-//                         }}
-//                     />
-//                 ))}
-//             </div>
-
-//             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//                 <motion.div
-//                     ref={ref}
-//                     initial={{ opacity: 0, y: 30 }}
-//                     animate={inView ? { opacity: 1, y: 0 } : {}}
-//                     transition={{ duration: 0.8 }}
-//                     className="text-center"
-//                 >
-//                     {/* Badge */}
-//                     <motion.div
-//                         initial={{ opacity: 0, scale: 0.9 }}
-//                         animate={inView ? { opacity: 1, scale: 1 } : {}}
-//                         transition={{ duration: 0.5, delay: 0.2 }}
-//                         className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-8 shadow-lg"
-//                     >
-//                         <span className="inline-block w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
-//                         <span className="text-sm font-semibold text-blue-600">
-//                             Innovating Tomorrow, Today
-//                         </span>
-//                     </motion.div>
-
-//                     {/* Main Heading */}
-//                     <motion.h1
-//                         initial={{ opacity: 0, y: 20 }}
-//                         animate={inView ? { opacity: 1, y: 0 } : {}}
-//                         transition={{ duration: 0.8, delay: 0.3 }}
-//                         className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
-//                     >
-//                         <span className="block text-gray-900">Transforming Ideas</span>
-//                         <span className="block">
-//                             <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-//                                 Into Digital Excellence
-//                             </span>
-//                         </span>
-//                     </motion.h1>
-
-//                     {/* Subtitle */}
-//                     <motion.p
-//                         initial={{ opacity: 0, y: 20 }}
-//                         animate={inView ? { opacity: 1, y: 0 } : {}}
-//                         transition={{ duration: 0.8, delay: 0.4 }}
-//                         className="text-xl text-gray-600 mb-10 max-w-3xl mx-auto leading-relaxed"
-//                     >
-//                         At Fibonce, we craft cutting-edge digital solutions that drive growth, 
-//                         enhance efficiency, and transform businesses for the future.
-//                     </motion.p>
-
-//                     {/* CTA Buttons */}
-//                     <motion.div
-//                         initial={{ opacity: 0, y: 20 }}
-//                         animate={inView ? { opacity: 1, y: 0 } : {}}
-//                         transition={{ duration: 0.8, delay: 0.5 }}
-//                         className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
-//                     >
-//                         <button className="group relative px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform">
-//                             <span className="flex items-center gap-2">
-//                                 Get Started Free
-//                                 <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
-//                             </span>
-//                             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-700 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></span>
-//                         </button>
-                        
-//                         <button className="group px-8 py-4 bg-white/80 backdrop-blur-sm text-blue-600 font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 transform border border-blue-100">
-//                             <span className="flex items-center gap-2">
-//                                 <FaPlay className="text-blue-500" />
-//                                 Watch Demo
-//                             </span>
-//                         </button>
-//                     </motion.div>
-
-//                     {/* Features Grid */}
-//                     <motion.div
-//                         initial={{ opacity: 0, y: 20 }}
-//                         animate={inView ? { opacity: 1, y: 0 } : {}}
-//                         transition={{ duration: 0.8, delay: 0.6 }}
-//                         className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto"
-//                     >
-//                         {[
-//                             { icon: FaRocket, title: "Fast Delivery", desc: "Quick turnaround times" },
-//                             { icon: FaShieldAlt, title: "Secure & Reliable", desc: "Enterprise-grade security" },
-//                             { icon: FaLightbulb, title: "Innovative Solutions", desc: "Cutting-edge technology" },
-//                         ].map((feature, index) => (
-//                             <motion.div
-//                                 key={index}
-//                                 initial={{ opacity: 0, y: 20 }}
-//                                 animate={inView ? { opacity: 1, y: 0 } : {}}
-//                                 transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
-//                                 whileHover={{ y: -5, scale: 1.02 }}
-//                                 className="group bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300"
-//                             >
-//                                 <div className="inline-flex p-3 bg-blue-100 rounded-xl mb-4 group-hover:bg-blue-200 transition-colors duration-300">
-//                                     <feature.icon className="w-6 h-6 text-blue-600" />
-//                                 </div>
-//                                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h3>
-//                                 <p className="text-gray-600">{feature.desc}</p>
-//                             </motion.div>
-//                         ))}
-//                     </motion.div>
-
-//                     {/* Stats */}
-//                     <motion.div
-//                         initial={{ opacity: 0 }}
-//                         animate={inView ? { opacity: 1 } : {}}
-//                         transition={{ duration: 1, delay: 1 }}
-//                         className="mt-16 pt-8 border-t border-blue-100/50"
-//                     >
-//                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-//                             {[
-//                                 { value: "500+", label: "Projects Completed" },
-//                                 { value: "99%", label: "Client Satisfaction" },
-//                                 { value: "50+", label: "Team Members" },
-//                                 { value: "24/7", label: "Support" },
-//                             ].map((stat, index) => (
-//                                 <motion.div
-//                                     key={index}
-//                                     initial={{ opacity: 0, scale: 0.9 }}
-//                                     animate={inView ? { opacity: 1, scale: 1 } : {}}
-//                                     transition={{ duration: 0.5, delay: 1.1 + index * 0.1 }}
-//                                     className="text-center"
-//                                 >
-//                                     <div className="text-3xl md:text-4xl font-bold text-blue-600 mb-2">{stat.value}</div>
-//                                     <div className="text-gray-600">{stat.label}</div>
-//                                 </motion.div>
-//                             ))}
-//                         </div>
-//                     </motion.div>
-//                 </motion.div>
-//             </div>
-
-//             {/* Scroll Indicator */}
-//             <motion.div
-//                 initial={{ opacity: 0 }}
-//                 animate={{ opacity: 1 }}
-//                 transition={{ delay: 1.5, duration: 1 }}
-//                 className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-//             >
-//                 <div className="flex flex-col items-center gap-2">
-//                     <span className="text-sm text-blue-500">Scroll to explore</span>
-//                     <motion.div
-//                         animate={{ y: [0, 10, 0] }}
-//                         transition={{ duration: 1.5, repeat: Infinity }}
-//                         className="w-6 h-10 border-2 border-blue-300 rounded-full flex justify-center pt-2"
-//                     >
-//                         <div className="w-1 h-3 bg-blue-400 rounded-full"></div>
-//                     </motion.div>
-//                 </div>
-//             </motion.div>
-//         </section>
-//     );
-// };
-
-// export default HeroSection;
-
-
 // src/components/HeroSection.tsx
 import React, { useEffect, useState } from 'react';
 import { FaArrowRight, FaCheckCircle, FaPlay, FaRocket, FaShieldAlt, FaLightbulb, FaGlobe, FaCode, FaChartLine, FaServer } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
     const [ref, inView] = useInView({
@@ -238,16 +13,47 @@ const HeroSection = () => {
 
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
-   
 
     const services = [
-        { icon: FaCode, title: "Web Development", desc: "Premium websites & applications" },
-        { icon: FaGlobe, title: "App Development", desc: "iOS, Android & Cross-platform" },
-        { icon: FaChartLine, title: "Digital Marketing", desc: "Growth-driven strategies" },
-        { icon: FaServer, title: "Cloud Services", desc: "Scalable cloud solutions" },
-        { icon: FaShieldAlt, title: "Testing", desc: "Manual & Automation testing" },
-        { icon: FaRocket, title: "Full Stack", desc: "End-to-end solutions" },
+        {
+            icon: FaCode,
+            title: "Web Development",
+            desc: "Premium websites & applications",
+            path: "/services/web",
+        },
+        {
+            icon: FaGlobe,
+            title: "App Development",
+            desc: "iOS, Android & Cross-platform",
+            path: "/services/app",
+        },
+        {
+            icon: FaChartLine,
+            title: "Digital Marketing",
+            desc: "Growth-driven strategies",
+            path: "/services/dg",
+        },
+        {
+            icon: FaServer,
+            title: "Cloud Services",
+            desc: "Scalable cloud solutions",
+            path: "/services/cloud",
+        },
+        {
+            icon: FaShieldAlt,
+            title: "Testing",
+            desc: "Manual & Automation testing",
+            path: "/services/testing",
+        },
+        {
+            icon: FaRocket,
+            title: "Full Stack",
+            desc: "End-to-end solutions",
+            path: "/services/fullstack",
+        },
     ];
+    const navigate = useNavigate();
+
 
     return (
         <section className="relative overflow-hidden bg-gradient-to-b from-[#0a0a0f] via-[#0f0f1a] to-[#0a0a0f] py-20 md:py-32">
@@ -380,16 +186,18 @@ const HeroSection = () => {
                     >
                         <button className="group relative px-10 py-4 bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 text-white font-bold rounded-xl shadow-2xl hover:shadow-blue-500/30 transition-all duration-500 hover:scale-105 transform overflow-hidden">
                             <span className="absolute inset-0 bg-gradient-to-r from-blue-700 via-blue-600 to-cyan-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></span>
-                            <span className="relative flex items-center gap-3">
+                            <span className="relative flex items-center gap-3"
+                               onClick={() => navigate("/contact")}>
                                 Start Free Consultation
                                 <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
                             </span>
                             <span className="absolute -top-1 -left-1 w-3 h-3 border-t border-l border-blue-300/50 rounded-tl-lg"></span>
                             <span className="absolute -bottom-1 -right-1 w-3 h-3 border-b border-r border-cyan-300/50 rounded-br-lg"></span>
                         </button>
-                        
+
                         <button className="group px-10 py-4 bg-transparent text-blue-300 font-semibold rounded-xl border border-blue-800/50 hover:border-blue-500/70 transition-all duration-500 hover:scale-105 transform hover:shadow-lg hover:shadow-blue-900/30 backdrop-blur-sm">
-                            <span className="flex items-center gap-3">
+                            <span className="flex items-center gap-3"
+                               onClick={() => navigate("/contact")}>
                                 <span className="relative">
                                     <FaPlay className="text-blue-400 group-hover:text-cyan-300 transition-colors" />
                                     <span className="absolute inset-0 animate-ping rounded-full bg-blue-500/20"></span>
@@ -415,27 +223,39 @@ const HeroSection = () => {
                                     animate={inView ? { opacity: 1, y: 0 } : {}}
                                     transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
                                     whileHover={{ y: -8, scale: 1.05 }}
-                                    className="group relative bg-gradient-to-b from-blue-900/10 to-blue-800/5 backdrop-blur-sm p-5 rounded-xl border border-blue-900/30 hover:border-blue-500/50 transition-all duration-500 cursor-pointer"
+                                    onClick={() => navigate(service.path)}
+                                    className="group relative bg-gradient-to-b from-blue-900/10 to-blue-800/5
+               backdrop-blur-sm p-5 rounded-xl border border-blue-900/30
+               hover:border-blue-500/50 transition-all duration-500
+               cursor-pointer"
                                 >
-                                    {/* Hover effect background */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                                    
+                                    {/* Hover background */}
+                                    <div className="absolute inset-0 bg-gradient-to-br from-blue-900/20 to-transparent
+                    rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
                                     <div className="relative">
-                                        <div className="inline-flex p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/30 rounded-lg mb-4 group-hover:from-blue-800/60 group-hover:to-blue-700/40 transition-all duration-500">
+                                        <div className="inline-flex p-3 bg-gradient-to-br from-blue-900/40 to-blue-800/30
+                      rounded-lg mb-4 group-hover:from-blue-800/60 group-hover:to-blue-700/40
+                      transition-all duration-500">
                                             <service.icon className="w-6 h-6 text-blue-300 group-hover:text-cyan-200 transition-colors" />
                                         </div>
+
                                         <h3 className="text-base font-semibold text-gray-200 mb-1 group-hover:text-white transition-colors">
                                             {service.title}
                                         </h3>
+
                                         <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
                                             {service.desc}
                                         </p>
                                     </div>
-                                    
+
                                     {/* Hover indicator */}
-                                    <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-8 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+                                    <div className="absolute bottom-3 left-1/2 transform -translate-x-1/2 w-8 h-1
+                    bg-gradient-to-r from-blue-500 to-cyan-400 rounded-full
+                    opacity-0 group-hover:opacity-100 transition-all duration-500" />
                                 </motion.div>
                             ))}
+
                         </div>
                     </motion.div>
 
@@ -448,10 +268,10 @@ const HeroSection = () => {
                     >
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
                             {[
-                                { value: "500+", label: "Premium Projects", suffix: "" },
+                                { value: "5+", label: "Premium Projects", suffix: "" },
                                 { value: "99.7%", label: "Client Satisfaction", suffix: "" },
                                 { value: "24/7", label: "Premium Support", suffix: "" },
-                                { value: "50+", label: "Expert Team", suffix: "" },
+                                { value: "15+", label: "Expert Team", suffix: "" },
                             ].map((stat, index) => (
                                 <motion.div
                                     key={index}

@@ -1,152 +1,3 @@
-// import React from 'react';
-// import { 
-//   Sliders, 
-//   Rocket, 
-//   Briefcase, 
-//   Monitor, 
-//   Shield
-// } from 'lucide-react';
-
-// const WhyChooseUs = () => {
-//   const features = [
-//     {
-//       icon: <Sliders className="w-8 h-8" />,
-//       title: "Customizable & Scalable",
-//       description: "Every product is designed to grow with your business.",
-//       gradient: "from-blue-600 to-indigo-600",
-//       color: "text-blue-800"
-//     },
-//     {
-//       icon: <Rocket className="w-8 h-8" />,
-//       title: "Fast Setup & Deployment",
-//       description: "Start using our platforms in days, not months.",
-//       gradient: "from-emerald-600 to-teal-600",
-//       color: "text-emerald-800"
-//     },
-//     {
-//       icon: <Briefcase className="w-8 h-8" />,
-//       title: "Real-World Use Cases",
-//       description: "Solutions crafted with firsthand industry knowledge.",
-//       gradient: "from-purple-600 to-violet-600",
-//       color: "text-purple-800"
-//     },
-//     {
-//       icon: <Monitor className="w-8 h-8" />,
-//       title: "Clean, User-Friendly Interface",
-//       description: "Modern UI designed for ease of use and adoption.",
-//       gradient: "from-amber-600 to-orange-600",
-//       color: "text-amber-800"
-//     },
-//     {
-//       icon: <Shield className="w-8 h-8" />,
-//       title: "Secure & Compliant",
-//       description: "Built with enterprise-grade security and audit-ready architecture.",
-//       gradient: "from-rose-600 to-red-600",
-//       color: "text-rose-800"
-//     }
-//   ];
-
-//   return (
-//     <div className="min-h-screen ">
-//       {/* Main Content */}
-//       <div className="container mx-auto px-4 py-16 md:py-24">
-//         {/* Header */}
-//         <div className="text-center mb-16 md:mb-20">
-//           <div className="inline-block px-4 py-2 bg-blue-50 rounded-full mb-6">
-//             <span className="text-blue-700 font-semibold text-sm uppercase tracking-wider">
-//               Why We're Different
-//             </span>
-//           </div>
-//           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-//             Why Choose <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Us</span>
-//           </h1>
-//           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-//             We combine cutting-edge technology with deep industry expertise to deliver solutions that drive real business results
-//           </p>
-//         </div>
-
-//         {/* Features Grid */}
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-//           {features.map((feature, index) => (
-//             <div
-//               key={index}
-//               className="group relative bg-white rounded-xl p-8 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-gray-100"
-//             >
-//               {/* Top Accent Line */}
-//               <div className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${feature.gradient} rounded-t-xl`} />
-              
-//               {/* Icon Container */}
-//               <div className={`relative mb-6 w-16 h-16 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center text-white transform group-hover:scale-110 transition-transform duration-300 shadow-md`}>
-//                 {feature.icon}
-//               </div>
-              
-//               {/* Content */}
-//               <h3 className={`text-2xl font-bold mb-4 ${feature.color}`}>
-//                 {feature.title}
-//               </h3>
-//               <p className="text-gray-700 text-lg leading-relaxed mb-6">
-//                 {feature.description}
-//               </p>
-              
-//               {/* Learn More Link */}
-//               <div className="flex items-center text-gray-500 group-hover:text-blue-600 transition-colors duration-300">
-//                 <span className="font-medium">Learn more</span>
-//                 <svg 
-//                   className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform duration-300" 
-//                   fill="none" 
-//                   stroke="currentColor" 
-//                   viewBox="0 0 24 24"
-//                 >
-//                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-//                 </svg>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* Stats Section */}
-//         <div className="mt-20 bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-8 md:p-12 shadow-xl">
-//           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-//             <div className="text-white">
-//               <div className="text-4xl md:text-5xl font-bold mb-2">99%</div>
-//               <div className="text-blue-100">Customer Satisfaction</div>
-//             </div>
-//             <div className="text-white">
-//               <div className="text-4xl md:text-5xl font-bold mb-2">24/7</div>
-//               <div className="text-blue-100">Support Available</div>
-//             </div>
-//             <div className="text-white">
-//               <div className="text-4xl md:text-5xl font-bold mb-2">5,000+</div>
-//               <div className="text-blue-100">Businesses Served</div>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* CTA Section */}
-//         <div className="mt-20 text-center">
-//           <div className="max-w-2xl mx-auto">
-//             <h2 className="text-3xl font-bold text-gray-900 mb-6">
-//               Ready to Transform Your Business?
-//             </h2>
-//             <p className="text-gray-600 text-lg mb-8">
-//               Join thousands of successful companies that trust our solutions
-//             </p>
-//             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-//               <button className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-xl hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-//                 Start Free Trial
-//               </button>
-//               <button className="px-8 py-4 bg-white text-blue-700 font-semibold rounded-xl border-2 border-blue-200 hover:border-blue-300 hover:shadow-lg transition-all duration-300">
-//                 Schedule a Demo
-//               </button>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default WhyChooseUs;
 import React from 'react';
 import { 
   Sliders, 
@@ -162,6 +13,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 
 const WhyChooseUs = () => {
   const { ref, inView } = useInView({
@@ -222,6 +74,7 @@ const WhyChooseUs = () => {
     }
   };
 
+  const navigate = useNavigate();
   const features = [
     {
       icon: <Zap className="w-7 h-7" />,
@@ -613,6 +466,7 @@ const WhyChooseUs = () => {
                 variants={scaleIn}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
+                   onClick={() => navigate("/contact")}
                 className="px-8 py-4 bg-transparent text-blue-300 font-semibold rounded-xl border border-blue-800/50 hover:border-blue-500/70 transition-all duration-500 hover:shadow-lg hover:shadow-blue-900/30 backdrop-blur-sm"
               >
                 View Success Stories

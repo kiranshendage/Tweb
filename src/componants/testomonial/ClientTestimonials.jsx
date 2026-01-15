@@ -1,268 +1,8 @@
-// import React, { useEffect, useState } from 'react';
-// import { Star, Quote, ChevronRight, Sparkles, TrendingUp, Users, Clock, Award } from 'lucide-react';
-
-// const ClientTestimonials = () => {
-//   const [isVisible, setIsVisible] = useState(false);
-
-//   useEffect(() => {
-//     setIsVisible(true);
-//   }, []);
-
-//   const testimonials = [
-//     {
-//       quote: "Fibance helped us scale our operations rapidly with a secure and smooth architecture",
-//       name: "Ava Thompson",
-//       role: "Product Manager",
-//       company: "TechGrowth Inc",
-//       rating: 5,
-//       gradient: "from-blue-500 to-cyan-500",
-//       delay: 0
-//     },
-//     {
-//       quote: "Real-world impact! Their platform helped us improve decision making at scale!",
-//       name: "Sophia Garcia",
-//       role: "Data Analyst",
-//       company: "DataSphere",
-//       rating: 5,
-//       gradient: "from-emerald-500 to-teal-500",
-//       delay: 100
-//     },
-//     {
-//       quote: "The user experience has never been better. Love how flexible the system is.",
-//       name: "Emily Chen",
-//       role: "UI/UX Designer",
-//       company: "DesignCo",
-//       rating: 5,
-//       gradient: "from-purple-500 to-violet-500",
-//       delay: 200
-//     },
-//     {
-//       quote: "Deployment was incredibly fast. We went live in under a week!",
-//       name: "Noah Wilson",
-//       role: "DevOps Engineer",
-//       company: "CloudScale",
-//       rating: 5,
-//       gradient: "from-amber-500 to-orange-500",
-//       delay: 300
-//     },
-//     {
-//       quote: "Their cloud and cybersecurity approach is modern, lean, and highly efficient.",
-//       name: "Liam Patel",
-//       role: "CTO",
-//       company: "CyberNet",
-//       rating: 5,
-//       gradient: "from-rose-500 to-pink-500",
-//       delay: 400
-//     }
-//   ];
-
-//   const stats = [
-//     { icon: <TrendingUp className="w-8 h-8" />, value: "4.9/5", label: "Average Rating", color: "text-blue-400" },
-//     { icon: <Users className="w-8 h-8" />, value: "500+", label: "Happy Clients", color: "text-emerald-400" },
-//     { icon: <Clock className="w-8 h-8" />, value: "98%", label: "Satisfaction Rate", color: "text-purple-400" },
-//     { icon: <Award className="w-8 h-8" />, value: "24/7", label: "Support Available", color: "text-amber-400" }
-//   ];
-
-//   const renderStars = (count) => {
-//     return Array.from({ length: count }).map((_, i) => (
-//       <Star 
-//         key={i} 
-//         className="w-5 h-5 fill-yellow-400 text-yellow-400 animate-pulse"
-//         style={{ animationDelay: `${i * 100}ms` }}
-//       />
-//     ));
-//   };
-
-//   return (
-//     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-cyan-5  0 py-16 md:py-24 overflow-hidden">
-//       {/* Animated Background Elements */}
-//       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-//         <div className="absolute -top-40 -right-40 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl"></div>
-//         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl"></div>
-//       </div>
-
-//       <div className="container relative mx-auto px-4">
-//         {/* Header */}
-//         <div className={`text-center mb-16 md:mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-//           <div className="inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-full mb-8 backdrop-blur-sm border border-blue-200/50">
-//             <Sparkles className="w-5 h-5 text-blue-600 mr-2 animate-pulse" />
-//             <span className="text-blue-700 font-semibold text-sm uppercase tracking-wider">
-//               Client Testimonials
-//             </span>
-//           </div>
-//           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 animate-fade-in">
-//             Trusted by{' '}
-//             <span className="relative inline-block">
-//               <span className="relative z-10 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 animate-gradient bg-300%">
-//                 Industry Leaders
-//               </span>
-//               <div className="absolute -inset-1 bg-gradient-to-r from-blue-600/20 to-purple-600/20 blur-xl rounded-lg"></div>
-//             </span>
-//           </h1>
-//           <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '200ms' }}>
-//             Discover why professionals across industries choose our innovative solutions
-//           </p>
-//         </div>
-
-//         {/* Testimonials Grid */}
-//         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-20">
-//           {testimonials.map((testimonial, index) => (
-//             <div
-//               key={index}
-//               className={`group relative transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-//               style={{ transitionDelay: `${testimonial.delay}ms` }}
-//             >
-//               {/* Glow Effect */}
-//               <div className={`absolute -inset-0.5 bg-gradient-to-br ${testimonial.gradient} rounded-2xl opacity-0 group-hover:opacity-30 blur transition duration-500`}></div>
-              
-//               {/* Card */}
-//               <div className="relative bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200/50 group-hover:border-transparent transition-all duration-500 group-hover:scale-[1.02]">
-//                 {/* Floating Quote Icon */}
-//                 <div className="absolute -top-6 -left-6 w-14 h-14 bg-gradient-to-br from-white to-gray-50 rounded-2xl shadow-2xl flex items-center justify-center animate-float">
-//                   <Quote className="w-7 h-7 text-gray-400" />
-//                 </div>
-                
-//                 {/* Rating with Animation */}
-//                 <div className="flex mb-6 transform group-hover:scale-105 transition-transform duration-300">
-//                   {renderStars(testimonial.rating)}
-//                 </div>
-                
-//                 {/* Quote with Gradient Text */}
-//                 <p className="text-gray-700 text-lg mb-8 leading-relaxed relative">
-//                   <span className="absolute -left-3 top-0 text-4xl text-gray-300/50 leading-none">"</span>
-//                   {testimonial.quote}
-//                   <span className="absolute -right-3 bottom-0 text-4xl text-gray-300/50 leading-none">"</span>
-//                 </p>
-                
-//                 {/* Client Info with Slide Animation */}
-//                 <div className="flex items-center pt-6 border-t border-gray-100 group-hover:border-blue-100 transition-colors duration-300">
-//                   <div className={`relative mr-4`}>
-//                     <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${testimonial.gradient} flex items-center justify-center text-white font-bold text-lg shadow-lg transform group-hover:rotate-12 transition-transform duration-500`}>
-//                       {testimonial.name.charAt(0)}
-//                     </div>
-//                     <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-white rounded-full border-2 border-white flex items-center justify-center">
-//                       <div className={`w-2 h-2 rounded-full bg-gradient-to-br ${testimonial.gradient}`}></div>
-//                     </div>
-//                   </div>
-//                   <div className="flex-grow">
-//                     <div className="flex items-center justify-between">
-//                       <div>
-//                         <h4 className="font-bold text-gray-900 group-hover:text-gray-800 transition-colors duration-300">
-//                           {testimonial.name}
-//                         </h4>
-//                         <p className="text-gray-600 text-sm">
-//                           {testimonial.role} • {testimonial.company}
-//                         </p>
-//                       </div>
-//                       <ChevronRight className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transform group-hover:translate-x-1 transition-all duration-300 opacity-0 group-hover:opacity-100" />
-//                     </div>
-//                   </div>
-//                 </div>
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-
-//         {/* Animated Stats Banner */}
-//         <div className={`relative mb-20 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-//           {/* Background Glow */}
-//           <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 rounded-3xl blur opacity-70 animate-gradient-slow"></div>
-          
-//           {/* Stats Content */}
-//           <div className="relative bg-gradient-to-r from-blue-600/90 to-indigo-700/90 backdrop-blur-sm rounded-3xl p-8 md:p-12 shadow-2xl">
-//             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-//               {stats.map((stat, index) => (
-//                 <div 
-//                   key={index}
-//                   className="text-center group"
-//                 >
-//                   <div className="inline-flex items-center justify-center w-16 h-16 bg-white/10 rounded-2xl mb-4 backdrop-blur-sm group-hover:bg-white/20 transition-all duration-500 group-hover:scale-110 mx-auto">
-//                     <div className={stat.color}>
-//                       {stat.icon}
-//                     </div>
-//                   </div>
-//                   <div className="text-4xl md:text-5xl font-bold text-white mb-2 animate-count-up">
-//                     {stat.value}
-//                   </div>
-//                   <div className="text-blue-100/90 font-medium">
-//                     {stat.label}
-//                   </div>
-//                 </div>
-//               ))}
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* CTA Section */}
-        
-//       </div>
-
-//       {/* Add custom animations to CSS */}
-//       <style jsx>{`
-//         @keyframes fadeIn {
-//           from { opacity: 0; transform: translateY(20px); }
-//           to { opacity: 1; transform: translateY(0); }
-//         }
-        
-//         @keyframes slideUp {
-//           from { opacity: 0; transform: translateY(30px); }
-//           to { opacity: 1; transform: translateY(0); }
-//         }
-        
-//         @keyframes float {
-//           0%, 100% { transform: translateY(0); }
-//           50% { transform: translateY(-10px); }
-//         }
-        
-//         @keyframes gradient {
-//           0%, 100% { background-position: 0% 50%; }
-//           50% { background-position: 100% 50%; }
-//         }
-        
-//         @keyframes countUp {
-//           from { opacity: 0; transform: translateY(10px); }
-//           to { opacity: 1; transform: translateY(0); }
-//         }
-        
-//         .animate-fade-in {
-//           animation: fadeIn 1s ease-out;
-//         }
-        
-//         .animate-slide-up {
-//           animation: slideUp 1s ease-out 0.2s both;
-//         }
-        
-//         .animate-float {
-//           animation: float 3s ease-in-out infinite;
-//         }
-        
-//         .animate-gradient {
-//           background-size: 300% 300%;
-//           animation: gradient 4s ease infinite;
-//         }
-        
-//         .animate-gradient-slow {
-//           background-size: 300% 300%;
-//           animation: gradient 8s ease infinite;
-//         }
-        
-//         .animate-count-up {
-//           animation: countUp 1s ease-out;
-//         }
-        
-//         .bg-300% {
-//           background-size: 300% 300%;
-//         }
-//       `}</style>
-//     </div>
-//   );
-// };
-
-// export default ClientTestimonials;
 import React from 'react';
 import { Star, Quote, ChevronRight, Sparkles, TrendingUp, Users, Clock, Award, Zap, Target, Shield } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 
 const ClientTestimonials = () => {
   const { ref, inView } = useInView({
@@ -391,6 +131,7 @@ const ClientTestimonials = () => {
     }
   ];
 
+  const navigate = useNavigate();
   const stats = [
     { 
       icon: <TrendingUp className="w-7 h-7" />, 
@@ -793,7 +534,8 @@ const ClientTestimonials = () => {
                   transition={{ duration: 0.6 }}
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
                 />
-                <span className="relative flex items-center justify-center gap-3">
+                <span className="relative flex items-center justify-center gap-3"
+                   onClick={() => navigate("/contact")}>
                   Start Your Success Story
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
@@ -808,6 +550,7 @@ const ClientTestimonials = () => {
                 variants={scaleIn}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
+                   onClick={() => navigate("/contact")}
                 className="px-8 py-4 bg-transparent text-blue-300 font-semibold rounded-xl border border-blue-800/50 hover:border-blue-500/70 transition-all duration-500 hover:shadow-lg hover:shadow-blue-900/30 backdrop-blur-sm"
               >
                 View All Case Studies

@@ -1,78 +1,11 @@
-// // src/components/static/StaticAboutSection.jsx
-// import React from 'react';
-// import { FaArrowRight } from 'react-icons/fa';
-
-// // Import static components
-// import StaticSectionBadge from './StaticSectionBadge';
-// import StaticStats from './StaticStats';
-// import StaticFeaturesGrid from './StaticFeaturesGrid';
-// import StaticMissionCard from './StaticMissionCard';
-// import StaticTeamCard from './StaticTeamCard';
-
-// const StaticAboutSection = () => {
-//   return (
-//     <section className="py-16 md:py-24 bg-gradient-to-b from-white to-blue-50">
-//       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-//           {/* Left Column - Content */}
-//           <div className="space-y-8">
-//             {/* Section Badge */}
-//             <StaticSectionBadge />
-
-//             {/* Main Heading */}
-//             <div>
-//               <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
-//                 <span className="text-slate-900">Innovating </span>
-//                 <span className="bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent">
-//                   Tomorrow's Technology
-//                 </span>
-//               </h2>
-//               <p className="text-slate-600 text-lg leading-relaxed mb-8">
-//                 Triocore Technology Solutions is a cutting-edge technology company dedicated to 
-//                 delivering high-performance and secure digital systems. Our team thrives on 
-//                 innovation, with a focus on cybersecurity, cloud infrastructure, and scalable 
-//                 product engineering. We partner with forward-thinking businesses to build 
-//                 impactful tech solutions.
-//               </p>
-
-//               {/* Features Grid */}
-//               <StaticFeaturesGrid />
-
-//               {/* CTA Button */}
-//               <button className="group inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-blue-500 px-8 py-4 rounded-xl shadow-lg shadow-blue-300/50 text-white font-bold hover:shadow-xl transition-all duration-300">
-//                 <span>Learn More</span>
-//                 <FaArrowRight className="group-hover:translate-x-2 transition-transform duration-300" />
-//               </button>
-//             </div>
-//           </div>
-
-//           {/* Right Column - Stats & Visual */}
-//           <div className="space-y-8">
-//             {/* Stats Cards */}
-//             <StaticStats />
-
-//             {/* Mission Card */}
-//             <StaticMissionCard />
-
-//             {/* Team Card */}
-//             <StaticTeamCard />
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// };
-
-// export default StaticAboutSection;
-
-// src/components/static/StaticAboutSection.jsx
 import React from 'react';
 import { FaArrowRight, FaShieldAlt, FaCloud, FaRocket, FaUsers, FaCode, FaChartLine, FaServer } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 
 const StaticAboutSection = () => {
+  const navigate = useNavigate();
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
@@ -300,7 +233,8 @@ const StaticAboutSection = () => {
                   transition={{ duration: 0.6 }}
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
                 />
-                <span className="relative flex items-center gap-3">
+                <span className="relative flex items-center gap-3"
+                   onClick={() => navigate("/contact")}>
                   Schedule Premium Consultation
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
@@ -322,7 +256,7 @@ const StaticAboutSection = () => {
             >
               {[
                 { 
-                  value: "500+", 
+                  value: "5+", 
                   label: "Premium Projects", 
                   icon: "🚀",
                   color: "from-blue-400 to-cyan-300"
@@ -340,7 +274,7 @@ const StaticAboutSection = () => {
                   color: "from-blue-500 to-cyan-400"
                 },
                 { 
-                  value: "50+", 
+                  value: "15+", 
                   label: "Expert Team", 
                   icon: "👥",
                   color: "from-blue-400 to-cyan-300"
