@@ -73,6 +73,12 @@ import ECommerceSolutions from "./componants/solution/EcommerceSolutions.jsx";
 import PortfolioPage from "./componants/homePage/PortfolioPage.jsx";
 import Portfolio from "./componants/portfolio/Portfolio.jsx";
 import ProjectDetail from "./componants/portfolio/ProjectDetail.jsx";
+import DedicatedTeam from "./componants/why-choose-us/DedicatedTeam.jsx";
+import ScalableArchitecture from "./componants/why-choose-us/ScalableArchitecture.jsx";
+import PremiumUIUXDesign from "./componants/why-choose-us/PremiumUIUXDesign.jsx";
+import LightningFastDelivery from "./componants/why-choose-us/LightningFastDelivery.jsx";
+import GoalOrientedApproach from "./componants/why-choose-us/GoalOrientedApproach.jsx";
+import EnterpriseSecurity from "./componants/why-choose-us/EnterpriseSecurity.jsx";
 function App() {
   return (
     <>
@@ -108,6 +114,14 @@ function App() {
         <Route path="/solution/hk" element={<HealthTechSolutions />} />
         <Route path="/solution/ed" element={<EdTechSolutions />} />
         <Route path="/solution/et" element={<EnterpriseSolutions />} />
+
+        <Route path="/whyChooseUs/dedicatedTeam" element={<DedicatedTeam />} />
+        <Route path="/whyChooseUs/enterpriseSecurity" element={<EnterpriseSecurity />} />
+        <Route path="/whyChooseUs/goalOrientedApproach" element={<GoalOrientedApproach />} />
+        <Route path="/whyChooseUs/lightningFastDelivery" element={<LightningFastDelivery />} />
+        <Route path="/whyChooseUs/premiumUIUXDesign" element={<PremiumUIUXDesign />} />
+        <Route path="/whyChooseUs/scalableArchitecture" element={<ScalableArchitecture />} />
+
 
         {/* <Route path="/portfolio" element={<PortfolioPage />} /> */}
 

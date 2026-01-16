@@ -5,19 +5,20 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
 
     const quickLinks = [
-        { name: 'Home', href: '#' },
-        { name: 'About Us', href: '#' },
-        { name: 'Services', href: '#' },
-        { name: 'Portfolio', href: '#' },
-        { name: 'Contact', href: '#' },
+        { name: 'Home', href: '/' },
+        { name: 'About Us', href: '/about' },
+        { name: 'Services', href: '/process' },
+        { name: 'Portfolio', href: '/portfolio' },
+        { name: 'Contact', href: '/contact' },
     ];
 
     const services = [
-        { name: 'Web Development', href: '#' },
-        { name: 'Mobile Apps', href: '#' },
-        { name: 'Cloud Solutions', href: '#' },
-        { name: 'Digital Marketing', href: '#' },
-        { name: 'UI/UX Design', href: '#' },
+        { name: 'Web Development', href: '/services/web' },
+        { name: 'Mobile Apps', href: '/services/app' },
+        { name: 'Cloud Solutions', href: '/services/cloud' },
+        { name: 'Digital Marketing', href: '/services/dg' },
+        { name: 'Testing', href: '/services/testing' },
+        { name: 'Full Stack', href: '/services/fullstack' },
     ];
 
     const socialLinks = [

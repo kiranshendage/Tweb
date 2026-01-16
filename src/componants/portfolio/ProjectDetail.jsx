@@ -1358,7 +1358,7 @@ export default function ProjectDetail() {
       <ShareModal isOpen={isShareOpen} onClose={() => setIsShareOpen(false)} project={project} />
 
       {/* Hero Section */}
-      <section className="relative pt-8 pb-20 overflow-hidden">
+      <section className="relative pt-8 overflow-hidden">
         {/* Background Effects */}
         <div className="absolute inset-0">
           <div 
@@ -1519,7 +1519,7 @@ export default function ProjectDetail() {
       </section>
 
       {/* Performance Metrics Section */}
-      <section className="py-16 md:py-20">
+      <section className="py-5 md:py-5">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
@@ -1688,7 +1688,7 @@ export default function ProjectDetail() {
 
       {/* Related Projects */}
       {relatedProjects.length > 0 && (
-        <section className="py-16 md:py-20 border-t border-slate-800/50">
+        <section className="py-3 md:py-5 border-t border-slate-800/50">
           <div className="max-w-7xl mx-auto px-6">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -1738,32 +1738,67 @@ export default function ProjectDetail() {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 md:py-24">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="relative"
+      ;
+
+<section className="pb-20">
+  <div className="max-w-4xl mx-auto px-6 text-center">
+    <motion.div
+      initial={{ opacity: 0, y: 50, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: true }}
+      className="relative"
+      whileHover={{ scale: 1.02 }} // subtle float on hover
+    >
+      {/* Background Blur */}
+      <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 via-purple-600/20 to-cyan-600/20 rounded-3xl blur-3xl animate-pulse" />
+      
+      {/* Card */}
+      <div className="relative p-10 md:p-12 bg-slate-900/90 border border-slate-800/50 rounded-3xl shadow-xl">
+        <motion.div 
+          initial={{ y: -20, opacity: 0 }} 
+          animate={{ y: 0, opacity: 1 }} 
+          transition={{ delay: 0.3, duration: 0.6 }}
+        >
+          <HiLightningBolt className="w-12 h-12 md:w-16 md:h-16 text-indigo-400 mx-auto mb-6" />
+        </motion.div>
+
+        <motion.h2
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
+          className="text-3xl md:text-4xl font-bold text-white mb-4"
+        >
+          Ready to start your project?
+        </motion.h2>
+
+        <motion.p
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.6 }}
+          className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto"
+        >
+          Let's collaborate and bring your ideas to life with cutting-edge technology
+        </motion.p>
+
+        <motion.div
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ delay: 0.9, duration: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+        >
+          <Link
+            to="/contact"
+            className="inline-flex items-center gap-3 px-8 md:px-10 py-4 md:py-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-base md:text-lg rounded-2xl hover:shadow-2xl hover:shadow-indigo-500/25 transition-all"
           >
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 via-purple-600/20 to-cyan-600/20 rounded-3xl blur-3xl" />
-            <div className="relative p-10 md:p-12 bg-slate-900/90 border border-slate-800/50 rounded-3xl">
-              <HiLightningBolt className="w-12 h-12 md:w-16 md:h-16 text-indigo-400 mx-auto mb-6" />
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Ready to start your project?</h2>
-              <p className="text-lg md:text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                Let's collaborate and bring your ideas to life with cutting-edge technology
-              </p>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-3 px-8 md:px-10 py-4 md:py-5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold text-base md:text-lg rounded-2xl hover:shadow-2xl hover:shadow-indigo-500/25 transition-all"
-              >
-                <span>Get In Touch</span>
-                <FaArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+            <span>Get In Touch</span>
+            <FaArrowRight className="w-4 h-4 md:w-5 md:h-5" />
+          </Link>
+        </motion.div>
+      </div>
+    </motion.div>
+  </div>
+</section>
     </motion.div>
   );
 }

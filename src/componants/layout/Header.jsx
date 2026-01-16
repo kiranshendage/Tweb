@@ -84,7 +84,7 @@
 //                             >
 //                                 {/* Invisible bridge to prevent gap issue */}
 //                                 <div className="absolute -top-2 left-0 right-0 h-2"></div>
-                                
+
 //                                 <div className="w-64 bg-[#0a0a0f] backdrop-blur-lg rounded-xl shadow-2xl shadow-blue-900/30 border border-blue-900/50">
 //                                     <div className="p-2">
 //                                         {servicesDropdown.map((service, index) => (
@@ -144,7 +144,7 @@
 //                             className="lg:hidden text-gray-400 hover:text-white transition-colors duration-200"
 //                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
 //                             aria-label="Toggle menu"
-                            
+
 //                         >
 //                             {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
 //                         </button>
@@ -209,7 +209,7 @@ const Navbar = () => {
                 <div className="flex justify-between items-center h-16 sm:h-18 md:h-20">
                     {/* Logo Section */}
                     <div className="flex items-center space-x-3">
-                        <div 
+                        <div
                             className="flex-shrink-0 cursor-pointer"
                             onClick={() => handleNavigation("/")}
                         >
@@ -246,23 +246,22 @@ const Navbar = () => {
                         >
                             <button className="text-gray-300 hover:text-white font-medium transition-all duration-300 flex items-center space-x-2 py-2 text-sm xl:text-base">
                                 <span>Services</span>
-                                <FaChevronDown 
-                                    className={`transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`} 
-                                    size={12} 
+                                <FaChevronDown
+                                    className={`transition-transform duration-300 ${activeDropdown === 'services' ? 'rotate-180' : ''}`}
+                                    size={12}
                                 />
                             </button>
 
                             {/* Dropdown Menu with bridge element */}
-                            <div 
-                                className={`absolute top-full left-0 pt-2 transition-all duration-300 transform origin-top z-50 ${
-                                    activeDropdown === 'services' 
-                                        ? 'opacity-100 scale-100 visible' 
+                            <div
+                                className={`absolute top-full left-0 pt-2 transition-all duration-300 transform origin-top z-50 ${activeDropdown === 'services'
+                                        ? 'opacity-100 scale-100 visible'
                                         : 'opacity-0 scale-95 invisible'
-                                }`}
+                                    }`}
                             >
                                 {/* Invisible bridge to prevent gap issue */}
                                 <div className="absolute -top-2 left-0 right-0 h-2"></div>
-                                
+
                                 <div className="w-56 xl:w-64 bg-[#0a0a0f] backdrop-blur-lg rounded-xl shadow-2xl shadow-blue-900/30 border border-blue-900/50">
                                     <div className="p-2">
                                         {servicesDropdown.map((service, index) => (
@@ -273,9 +272,9 @@ const Navbar = () => {
                                             >
                                                 <div className="w-2 h-2 bg-blue-500 rounded-full mr-3 group-hover/item:scale-125 transition-transform"></div>
                                                 <span>{service.name}</span>
-                                                <FaChevronDown 
-                                                    className="ml-auto transform -rotate-90 opacity-0 group-hover/item:opacity-100 transition-all" 
-                                                    size={10} 
+                                                <FaChevronDown
+                                                    className="ml-auto transform -rotate-90 opacity-0 group-hover/item:opacity-100 transition-all"
+                                                    size={10}
                                                 />
                                             </a>
                                         ))}
@@ -287,7 +286,7 @@ const Navbar = () => {
                         <a
                             href="#portfolio"
                             className="text-gray-300 hover:text-white font-medium transition-all duration-300 hover:scale-105 group relative text-sm xl:text-base"
-                             onClick={() => navigate("/portfolio")}
+                            onClick={() => navigate("/portfolio")}
                         >
                             Portfolio
                             <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-500 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
@@ -326,7 +325,7 @@ const Navbar = () => {
                         >
                             Contact
                         </button>
-                        
+
                         {/* Mobile Menu Toggle */}
                         <button
                             className="lg:hidden text-gray-400 hover:text-white transition-colors duration-200 p-2"
@@ -340,12 +339,11 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu */}
-            <div 
-                className={`lg:hidden absolute top-full left-0 right-0 bg-[#0a0a0f]/98 backdrop-blur-lg border-t border-blue-900/30 shadow-2xl transition-all duration-300 z-50 ${
-                    isMobileMenuOpen 
-                        ? 'opacity-100 translate-y-0 max-h-[calc(100vh-4rem)] overflow-y-auto' 
+            <div
+                className={`lg:hidden absolute top-full left-0 right-0 bg-[#0a0a0f]/98 backdrop-blur-lg border-t border-blue-900/30 shadow-2xl transition-all duration-300 z-50 ${isMobileMenuOpen
+                        ? 'opacity-100 translate-y-0 max-h-[calc(100vh-4rem)] overflow-y-auto'
                         : 'opacity-0 -translate-y-4 pointer-events-none max-h-0 overflow-hidden'
-                }`}
+                    }`}
             >
                 <div className="px-4 py-4 space-y-2">
                     {/* Home */}
@@ -367,17 +365,16 @@ const Navbar = () => {
                             onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                         >
                             <span>Services</span>
-                            <FaChevronDown 
-                                className={`transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} 
-                                size={14} 
+                            <FaChevronDown
+                                className={`transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`}
+                                size={14}
                             />
                         </button>
-                        
+
                         {/* Mobile Services Dropdown */}
-                        <div 
-                            className={`transition-all duration-300 overflow-hidden ${
-                                mobileServicesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                            }`}
+                        <div
+                            className={`transition-all duration-300 overflow-hidden ${mobileServicesOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                                }`}
                         >
                             <div className="pl-4 py-2 space-y-1">
                                 {servicesDropdown.map((service, index) => (
@@ -399,10 +396,14 @@ const Navbar = () => {
                     <a
                         href="#portfolio"
                         className="block px-4 py-3 text-gray-300 hover:text-white hover:bg-blue-900/30 rounded-lg transition-all duration-200 font-medium"
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            handleNavigation("/portfolio");
+                        }}
                     >
                         Portfolio
                     </a>
+
 
                     {/* Process */}
                     <a

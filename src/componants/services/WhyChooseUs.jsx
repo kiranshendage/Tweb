@@ -1,9 +1,10 @@
 import React from 'react';
-import { 
-  Sliders, 
-  Rocket, 
-  Briefcase, 
-  Monitor, 
+
+import {
+  Sliders,
+  Rocket,
+  Briefcase,
+  Monitor,
   Shield,
   Zap,
   Clock,
@@ -38,7 +39,7 @@ const WhyChooseUs = () => {
       y: 0,
       opacity: 1,
       scale: 1,
-      transition: { 
+      transition: {
         duration: 0.6,
         ease: "easeOut"
       }
@@ -75,48 +76,54 @@ const WhyChooseUs = () => {
   };
 
   const navigate = useNavigate();
-  const features = [
+  const feature = [
     {
       icon: <Zap className="w-7 h-7" />,
       title: "Lightning-Fast Delivery",
       description: "Rapid development cycles with agile methodology for quick time-to-market.",
       gradient: "from-blue-500/20 via-blue-400/15 to-blue-500/20",
-      borderColor: "border-blue-500/30"
+      borderColor: "border-blue-500/30",
+      path: "/whyChooseUs/lightningFastDelivery"
     },
     {
       icon: <Rocket className="w-7 h-7" />,
       title: "Scalable Architecture",
       description: "Future-proof solutions designed to grow seamlessly with your business.",
       gradient: "from-cyan-500/20 via-cyan-400/15 to-cyan-500/20",
-      borderColor: "border-cyan-500/30"
+      borderColor: "border-cyan-500/30",
+      path: "/whyChooseUs/scalableArchitecture"
     },
     {
       icon: <Target className="w-7 h-7" />,
       title: "Goal-Oriented Approach",
       description: "Every project aligned with measurable business objectives and KPIs.",
       gradient: "from-indigo-500/20 via-indigo-400/15 to-indigo-500/20",
-      borderColor: "border-indigo-500/30"
+      borderColor: "border-indigo-500/30",
+      path: "/whyChooseUs/goalOrientedApproach"
     },
     {
       icon: <Monitor className="w-7 h-7" />,
       title: "Premium UI/UX Design",
       description: "Intuitive interfaces crafted for exceptional user experience.",
       gradient: "from-blue-600/20 via-blue-500/15 to-blue-600/20",
-      borderColor: "border-blue-600/30"
+      borderColor: "border-blue-600/30",
+      path: "/whyChooseUs/premiumUIUXDesign"
     },
     {
       icon: <Shield className="w-7 h-7" />,
       title: "Enterprise Security",
       description: "Bank-grade security protocols and compliance-ready architecture.",
       gradient: "from-blue-700/20 via-blue-600/15 to-blue-700/20",
-      borderColor: "border-blue-700/30"
+      borderColor: "border-blue-700/30",
+      path: "/whyChooseUs/enterpriseSecurity"
     },
     {
       icon: <Users className="w-7 h-7" />,
       title: "Dedicated Team",
       description: "Expert developers, designers, and strategists assigned to your project.",
       gradient: "from-cyan-600/20 via-cyan-500/15 to-cyan-600/20",
-      borderColor: "border-cyan-600/30"
+      borderColor: "border-cyan-600/30",
+      path: "/whyChooseUs/dedicatedTeam"
     }
   ];
 
@@ -182,25 +189,25 @@ const WhyChooseUs = () => {
             className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 leading-tight"
           >
             <span className="text-transparent bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text">
-              Why Choose 
+              Why Choose
             </span>
             <span className="block">
               <motion.span
-                animate={{ 
+                animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                 }}
-                transition={{ 
-                  duration: 3, 
+                transition={{
+                  duration: 3,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                style={{ 
+                style={{
                   backgroundSize: "200% 200%",
                   backgroundImage: "linear-gradient(to right, #60a5fa, #22d3ee, #60a5fa)"
                 }}
                 className="text-transparent bg-clip-text"
               >
-                TechVanguard?
+                Triocore Tech?
               </motion.span>
             </span>
           </motion.h1>
@@ -218,20 +225,25 @@ const WhyChooseUs = () => {
         </motion.div>
 
         {/* Features Grid */}
+        {/* Features Grid */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "visible" : "hidden"}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-20"
         >
-          {features.map((feature, index) => (
+          {feature.map((item, index) => (
             <motion.div
               key={index}
               variants={cardVariants}
               whileHover={{ y: -10, scale: 1.03 }}
-              className={`group relative bg-gradient-to-b from-blue-900/10 to-blue-800/5 backdrop-blur-sm rounded-2xl border ${feature.borderColor} hover:border-blue-500/50 transition-all duration-500 overflow-hidden`}
+              onClick={() => navigate(item.path)}
+              className={`group relative cursor-pointer
+        bg-gradient-to-b from-blue-900/10 to-blue-800/5
+        backdrop-blur-sm rounded-2xl border ${item.borderColor}
+        hover:border-blue-500/50 transition-all duration-500 overflow-hidden`}
               style={{
-                background: `linear-gradient(135deg, ${feature.gradient})`,
+                background: `linear-gradient(135deg, ${item.gradient})`,
               }}
             >
               {/* Hover Overlay */}
@@ -242,32 +254,39 @@ const WhyChooseUs = () => {
               />
 
               <div className="relative p-8">
-                {/* Icon Container */}
+                {/* Icon */}
                 <motion.div
                   whileHover={{ rotate: 15, scale: 1.1 }}
-                  className="inline-flex p-4 bg-gradient-to-br from-blue-900/40 to-blue-800/30 rounded-xl mb-6 transition-all duration-500 shadow-lg"
+                  className="inline-flex p-4 bg-gradient-to-br from-blue-900/40 to-blue-800/30
+          rounded-xl mb-6 shadow-lg"
                 >
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
                     className="text-blue-300 group-hover:text-cyan-200 transition-colors"
                   >
-                    {feature.icon}
+                    {item.icon}
                   </motion.div>
                 </motion.div>
-                
+
                 {/* Content */}
                 <h3 className="text-xl font-bold text-gray-200 mb-4 group-hover:text-white transition-colors">
-                  {feature.title}
+                  {item.title}
                 </h3>
+
                 <p className="text-gray-400 text-base leading-relaxed mb-6 group-hover:text-gray-300 transition-colors">
-                  {feature.description}
+                  {item.description}
                 </p>
-                
-                {/* Learn More */}
+
+                {/* Explore Link */}
                 <motion.div
                   whileHover={{ x: 5 }}
-                  className="flex items-center text-blue-300 group-hover:text-cyan-200 transition-colors duration-300"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate(item.path);
+                  }}
+                  className="flex items-center text-blue-300 group-hover:text-cyan-200
+          transition-colors duration-300 cursor-pointer"
                 >
                   <span className="font-medium text-sm">Explore Feature</span>
                   <motion.div
@@ -275,13 +294,15 @@ const WhyChooseUs = () => {
                     transition={{ duration: 1.5, repeat: Infinity }}
                     className="ml-2"
                   >
-                    <svg 
-                      className="w-4 h-4" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                        d="M14 5l7 7m0 0l-7 7m7-7H3"
+                      />
                     </svg>
                   </motion.div>
                 </motion.div>
@@ -292,7 +313,8 @@ const WhyChooseUs = () => {
                 initial={{ scaleX: 0 }}
                 whileHover={{ scaleX: 1 }}
                 transition={{ duration: 0.3 }}
-                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-400 origin-left"
+                className="absolute bottom-0 left-0 right-0 h-1
+        bg-gradient-to-r from-blue-500 to-cyan-400 origin-left"
               />
             </motion.div>
           ))}
@@ -308,11 +330,11 @@ const WhyChooseUs = () => {
           {/* Animated Background Pattern */}
           <div className="absolute inset-0 opacity-10">
             <motion.div
-              animate={{ 
+              animate={{
                 x: [0, 20, 0],
                 y: [0, -20, 0]
               }}
-              transition={{ 
+              transition={{
                 duration: 8,
                 repeat: Infinity,
                 ease: "linear"
@@ -320,11 +342,11 @@ const WhyChooseUs = () => {
               className="absolute top-0 left-0 w-40 h-40 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-full blur-3xl"
             />
             <motion.div
-              animate={{ 
+              animate={{
                 x: [0, -20, 0],
                 y: [0, 20, 0]
               }}
-              transition={{ 
+              transition={{
                 duration: 8,
                 repeat: Infinity,
                 ease: "linear",
@@ -342,15 +364,15 @@ const WhyChooseUs = () => {
               className="text-2xl md:text-3xl font-bold text-center mb-12"
             >
               <motion.span
-                animate={{ 
+                animate={{
                   backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                 }}
-                transition={{ 
-                  duration: 4, 
+                transition={{
+                  duration: 4,
                   repeat: Infinity,
                   ease: "linear"
                 }}
-                style={{ 
+                style={{
                   backgroundSize: "200% 200%",
                   backgroundImage: "linear-gradient(to right, #93c5fd, #22d3ee, #93c5fd)"
                 }}
@@ -374,12 +396,12 @@ const WhyChooseUs = () => {
                   className="text-center group"
                 >
                   <motion.div
-                    animate={{ 
+                    animate={{
                       y: stat.value === "24/7" ? [0, -5, 0] : 0,
                       scale: stat.value === "24/7" ? [1, 1.1, 1] : 1
                     }}
-                    transition={{ 
-                      duration: 2, 
+                    transition={{
+                      duration: 2,
                       repeat: Infinity,
                       ease: "easeInOut"
                     }}
@@ -450,10 +472,10 @@ const WhyChooseUs = () => {
                     animate={{ x: [0, 5, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    <svg 
-                      className="w-4 h-4" 
-                      fill="none" 
-                      stroke="currentColor" 
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
                       viewBox="0 0 24 24"
                     >
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -461,12 +483,12 @@ const WhyChooseUs = () => {
                   </motion.div>
                 </span>
               </motion.button>
-              
+
               <motion.button
                 variants={scaleIn}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                   onClick={() => navigate("/contact")}
+                onClick={() => navigate("/contact")}
                 className="px-8 py-4 bg-transparent text-blue-300 font-semibold rounded-xl border border-blue-800/50 hover:border-blue-500/70 transition-all duration-500 hover:shadow-lg hover:shadow-blue-900/30 backdrop-blur-sm"
               >
                 View Success Stories
