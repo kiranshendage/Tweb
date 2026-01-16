@@ -1,8 +1,8 @@
 import React from 'react';
-import { FaArrowRight, FaShieldAlt, FaCloud, FaRocket, FaUsers, FaCode, FaChartLine, FaServer } from 'react-icons/fa';
+import { FaArrowRight, FaShieldAlt, FaCloud, FaRocket, FaUsers, FaCode, FaChartLine, FaServer, FaMobileAlt, FaLayerGroup } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const StaticAboutSection = () => {
   const navigate = useNavigate();
@@ -75,7 +75,7 @@ const StaticAboutSection = () => {
           animate={inView ? "visible" : "hidden"}
           className="grid lg:grid-cols-2 gap-16 lg:gap-20 items-start"
         >
-          
+
           {/* Left Column - Content */}
           <div className="space-y-10">
             {/* Premium Section Badge */}
@@ -100,19 +100,19 @@ const StaticAboutSection = () => {
             <motion.div variants={fadeInUp}>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 leading-tight">
                 <span className="text-transparent bg-gradient-to-r from-gray-100 to-gray-300 bg-clip-text">
-                  Crafting Digital 
+                  Crafting Digital
                 </span>
                 <span className="block mt-3">
                   <motion.span
-                    animate={{ 
+                    animate={{
                       backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"]
                     }}
-                    transition={{ 
-                      duration: 3, 
+                    transition={{
+                      duration: 3,
                       repeat: Infinity,
                       ease: "linear"
                     }}
-                    style={{ 
+                    style={{
                       backgroundSize: "200% 200%",
                       backgroundImage: "linear-gradient(to right, #60a5fa, #22d3ee, #60a5fa)"
                     }}
@@ -122,7 +122,7 @@ const StaticAboutSection = () => {
                   </motion.span>
                 </span>
               </h2>
-              
+
               {/* Premium Description */}
               <div className="space-y-6">
                 <motion.p
@@ -131,7 +131,7 @@ const StaticAboutSection = () => {
                 >
                   <span className="text-blue-300 font-semibold">TechVanguard</span> is a premier technology solutions provider specializing in enterprise-grade digital transformation. We combine cutting-edge technology with strategic innovation to deliver measurable business results.
                 </motion.p>
-                
+
                 {/* Services Highlight */}
                 <motion.div
                   variants={itemVariants}
@@ -141,29 +141,33 @@ const StaticAboutSection = () => {
                   <h3 className="text-xl font-bold text-gray-200 mb-4">Core Expertise</h3>
                   <div className="grid grid-cols-2 gap-3">
                     {[
-                      { icon: FaCode, text: 'Web Development' },
-                      { icon: FaServer, text: 'Cloud Services' },
-                      { icon: FaChartLine, text: 'Digital Marketing' },
-                      { icon: FaShieldAlt, text: 'Testing & QA' }
+                      { icon: FaCode, text: 'Web Development', link: '/services/web' },
+                      { icon: FaServer, text: 'Cloud Services', link: '/services/cloud' },
+                      { icon: FaChartLine, text: 'Digital Marketing', link: '/services/dg' },
+                      { icon: FaShieldAlt, text: 'Testing & QA', link: '/services/testing' },
+                      { icon: FaMobileAlt, text: 'Mobile App Development', link: '/services/app' },
+                      { icon: FaLayerGroup, text: 'Full Stack Development', link: '/services/fullstack' },
                     ].map((item, idx) => (
-                      <motion.div
-                        key={idx}
-                        variants={itemVariants}
-                        whileHover={{ x: 5 }}
-                        className="flex items-center gap-3 group"
-                      >
+                      <Link to={item.link} key={idx} className="group">
                         <motion.div
-                          whileHover={{ rotate: 10, scale: 1.1 }}
-                          className="p-2 bg-gradient-to-br from-blue-900/40 to-blue-800/30 rounded-lg group-hover:from-blue-800/60 transition-colors"
+                          variants={itemVariants}
+                          whileHover={{ x: 5 }}
+                          className="flex items-center gap-3 cursor-pointer"
                         >
-                          <item.icon className="w-4 h-4 text-blue-300 group-hover:text-cyan-200" />
+                          <motion.div
+                            whileHover={{ rotate: 10, scale: 1.1 }}
+                            className="p-2 bg-gradient-to-br from-blue-900/40 to-blue-800/30 rounded-lg group-hover:from-blue-800/60 transition-colors"
+                          >
+                            <item.icon className="w-4 h-4 text-blue-300 group-hover:text-cyan-200" />
+                          </motion.div>
+                          <span className="text-gray-300 group-hover:text-white transition-colors text-sm font-medium">
+                            {item.text}
+                          </span>
                         </motion.div>
-                        <span className="text-gray-300 group-hover:text-white transition-colors text-sm font-medium">
-                          {item.text}
-                        </span>
-                      </motion.div>
+                      </Link>
                     ))}
                   </div>
+
                 </motion.div>
               </div>
 
@@ -173,25 +177,25 @@ const StaticAboutSection = () => {
                 className="grid grid-cols-2 gap-4 mt-10"
               >
                 {[
-                  { 
-                    icon: FaRocket, 
-                    title: "Agile Development", 
-                    desc: "Rapid deployment with iterative feedback" 
+                  {
+                    icon: FaRocket,
+                    title: "Agile Development",
+                    desc: "Rapid deployment with iterative feedback"
                   },
-                  { 
-                    icon: FaShieldAlt, 
-                    title: "Enterprise Security", 
-                    desc: "Bank-grade security protocols" 
+                  {
+                    icon: FaShieldAlt,
+                    title: "Enterprise Security",
+                    desc: "Bank-grade security protocols"
                   },
-                  { 
-                    icon: FaCloud, 
-                    title: "Cloud Native", 
-                    desc: "Scalable cloud architecture" 
+                  {
+                    icon: FaCloud,
+                    title: "Cloud Native",
+                    desc: "Scalable cloud architecture"
                   },
-                  { 
-                    icon: FaUsers, 
-                    title: "Dedicated Teams", 
-                    desc: "Expert developers & strategists" 
+                  {
+                    icon: FaUsers,
+                    title: "Dedicated Teams",
+                    desc: "Expert developers & strategists"
                   },
                 ].map((feature, index) => (
                   <motion.div
@@ -234,7 +238,7 @@ const StaticAboutSection = () => {
                   className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
                 />
                 <span className="relative flex items-center gap-3"
-                   onClick={() => navigate("/contact")}>
+                  onClick={() => navigate("/contact")}>
                   Schedule Premium Consultation
                   <motion.div
                     animate={{ x: [0, 5, 0] }}
@@ -255,27 +259,27 @@ const StaticAboutSection = () => {
               className="grid grid-cols-2 gap-6"
             >
               {[
-                { 
-                  value: "5+", 
-                  label: "Premium Projects", 
+                {
+                  value: "5+",
+                  label: "Premium Projects",
                   icon: "🚀",
                   color: "from-blue-400 to-cyan-300"
                 },
-                { 
-                  value: "99.7%", 
-                  label: "Satisfaction Rate", 
+                {
+                  value: "99.7%",
+                  label: "Satisfaction Rate",
                   icon: "⭐",
                   color: "from-blue-300 to-cyan-200"
                 },
-                { 
-                  value: "24/7", 
-                  label: "Dedicated Support", 
+                {
+                  value: "24/7",
+                  label: "Dedicated Support",
                   icon: "🛡️",
                   color: "from-blue-500 to-cyan-400"
                 },
-                { 
-                  value: "15+", 
-                  label: "Expert Team", 
+                {
+                  value: "15+",
+                  label: "Expert Team",
                   icon: "👥",
                   color: "from-blue-400 to-cyan-300"
                 },
@@ -288,12 +292,12 @@ const StaticAboutSection = () => {
                 >
                   <div className="flex items-center gap-4">
                     <motion.div
-                      animate={{ 
+                      animate={{
                         y: stat.value === "24/7" ? [0, -5, 0] : 0,
                         scale: stat.value === "24/7" ? [1, 1.1, 1] : 1
                       }}
-                      transition={{ 
-                        duration: 2, 
+                      transition={{
+                        duration: 2,
                         repeat: Infinity,
                         ease: "easeInOut"
                       }}
@@ -386,9 +390,9 @@ const StaticAboutSection = () => {
               </div>
               <div className="space-y-4">
                 {[
-                  { label: 'Senior Developers', value: '25+' },
-                  { label: 'Cloud Architects', value: '12+' },
-                  { label: 'Digital Strategists', value: '8+' },
+                  { label: 'Senior Developers', value: '10+' },
+                  { label: 'Cloud Architects', value: '5+' },
+                  { label: 'Digital Strategists', value: '10+' },
                 ].map((item, index) => (
                   <motion.div
                     key={index}

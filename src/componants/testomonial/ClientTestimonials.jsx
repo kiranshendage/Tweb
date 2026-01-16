@@ -141,7 +141,7 @@ const ClientTestimonials = () => {
     },
     { 
       icon: <Users className="w-7 h-7" />, 
-      value: "500+", 
+      value: "5+", 
       label: "Enterprise Clients", 
       gradient: "from-blue-300 to-cyan-200"
     },

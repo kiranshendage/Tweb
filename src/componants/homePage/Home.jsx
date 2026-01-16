@@ -18,10 +18,10 @@ const Home = () => {
             <WhyChooseUs />
             <ClientTestimonials />
             <ContactUs />
-            <EdTechSolutions/>
+            {/* <EdTechSolutions/>
             <HealthTechSolutions/>
             <EnterpriseSolutions/>
-            <EcommerceSolutions/>
+            <EcommerceSolutions/> */}
         </>
     )
 }

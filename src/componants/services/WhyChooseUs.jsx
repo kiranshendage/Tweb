@@ -123,7 +123,7 @@ const WhyChooseUs = () => {
   const stats = [
     { value: "99.7%", label: "Client Satisfaction", icon: "⭐" },
     { value: "24/7", label: "Premium Support", icon: "🛡️" },
-    { value: "500+", label: "Projects Delivered", icon: "🚀" },
+    { value: "5+", label: "Projects Delivered", icon: "🚀" },
     { value: "< 30 days", label: "Avg. Launch Time", icon: "⚡" }
   ];
 

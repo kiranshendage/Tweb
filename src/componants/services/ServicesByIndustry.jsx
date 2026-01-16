@@ -123,7 +123,7 @@ const ServicesByIndustry = () => {
 
   const technologies = [
     { icon: FaCode, label: "Web Development", value: "5+" },
-    { icon: FaMobileAlt, label: "Mobile Apps", value: "5++" },
+    { icon: FaMobileAlt, label: "Mobile Apps", value: "5+" },
     { icon: FaCloud, label: "Cloud Projects", value: "2+" },
     { icon: FaServer, label: "Infrastructure", value: "15+" }
   ];

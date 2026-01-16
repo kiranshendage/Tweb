@@ -71,6 +71,8 @@ import EdTechSolutions from "./componants/solution/EdTechSolutions.jsx";
 import HealthTechSolutions from "./componants/solution/HealthTechSolutions.jsx";
 import ECommerceSolutions from "./componants/solution/EcommerceSolutions.jsx";
 import PortfolioPage from "./componants/homePage/PortfolioPage.jsx";
+import Portfolio from "./componants/portfolio/Portfolio.jsx";
+import ProjectDetail from "./componants/portfolio/ProjectDetail.jsx";
 function App() {
   return (
     <>
@@ -107,8 +109,10 @@ function App() {
         <Route path="/solution/ed" element={<EdTechSolutions />} />
         <Route path="/solution/et" element={<EnterpriseSolutions />} />
 
-        <Route path="/portfolio" element={<PortfolioPage />} />
+        {/* <Route path="/portfolio" element={<PortfolioPage />} /> */}
 
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio/:id" element={<ProjectDetail />} />
 
         <Route path="/process" element={<ProcessSection />} />
 
